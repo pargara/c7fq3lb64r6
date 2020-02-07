@@ -8,11 +8,8 @@ default: &default
   cache_path: tmp/cache/webpacker
   check_yarn_integrity: false
   webpack_compile_output: true
-
-  # Additional paths webpack should lookup modules
-  # ['app/assets', 'engine/foo/app/assets']
-  resolved_paths: []
-
+  # Search jQuery in node_modules of the application and not in the cocoon directory
+  resolved_paths: ['node_modules/jquery/dist']
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
 
@@ -34,6 +31,8 @@ default: &default
     - .woff2
 
   extensions:
+    - .js.erb # first array entry
+    - .erb
     - .mjs
     - .js
     - .sass
